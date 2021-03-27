@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,7 +23,7 @@ public class VoucherCodeService {
     private VoucherCodeRepository voucherCodeRepository;
 
     // Create new Voucher Code
-    public void newVoucherCode(Recipient recipient, SpecialOffer specialOffer, String expDate) throws ParseException {
+    public void newVoucherCode(Recipient recipient, SpecialOffer specialOffer, String expDate) throws Exception {
         VoucherCode voucherCode = new VoucherCode();
         voucherCode.setCode(this.generateNewCode());
         voucherCode.setUsed(false);
@@ -33,8 +32,12 @@ public class VoucherCodeService {
 
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
         Date date = format.parse(expDate);
-        voucherCode.setExpirationDate(date);
-
+        Calendar now = Calendar.getInstance();
+        if (date.after(now.getTime())) {
+            voucherCode.setExpirationDate(date);
+        } else {
+            throw new Exception("Expiration date is before the current time.");
+        }
         voucherCodeRepository.save(voucherCode);
     }
 
@@ -48,16 +51,16 @@ public class VoucherCodeService {
     }
 
     // Validate Voucher Code
-    public String validateVoucherCode(String voucherCode, String email) {
+    public String validateVoucherCode(String voucherCode, String email) throws Exception {
         VoucherCode vc = voucherCodeRepository.findVoucherCodeByCode(voucherCode);
         if (vc == null) {
-            return "ERROR:Invalid voucher code";
+            throw new Exception("Invalid voucher code");
         } else if (!vc.getRecipient().getEmail().equals(email)) {
-            return "ERROR:Email does not match from dB";
+            throw new Exception("Email does not match from dB");
         } else if (vc.getUsed()) {
-            return "ERROR:Voucher has already been used";
+            throw new Exception("Voucher has already been used");
         } else if (vc.getExpirationDate().before(Calendar.getInstance().getTime())) {
-            return "ERROR:Voucher is already expired";
+            throw new Exception("Voucher is already expired");
         } else {
             voucherCodeRepository.updateVoucherCode(vc.getVoucherCodeId(), true, Calendar.getInstance().getTime());
             return "Percentage Discount : " + vc.getSpecialOffer().getFixedPercentageDiscount() + "%";
@@ -65,8 +68,13 @@ public class VoucherCodeService {
     }
 
     // Get all Valid Vouchers
-    public List<VoucherCode> allValidVouchersByEmail(String email) {
-        return voucherCodeRepository.getAllValidVoucherCodeWithSONameByEmail(email);
+    public List<VoucherCode> allValidVouchersByEmail(String email) throws Exception {
+        List<VoucherCode> allValidVouchersList = voucherCodeRepository.getAllValidVoucherCodeWithSONameByEmail(email);
+        if (!allValidVouchersList.isEmpty()) {
+            return voucherCodeRepository.getAllValidVoucherCodeWithSONameByEmail(email);
+        } else {
+            throw new Exception("There are no valid vouchers for " + email);
+        }
     }
 
     // To prevent duplicate generated code (Just in case)

@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "6fc5291d-8b71-4261-80d8-70caa05bad2d",
+		"name": "Special Offer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Special Offer List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/VoucherPool/specialOffer/getAllSpecialOfferList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"VoucherPool",
+						"specialOffer",
+						"getAllSpecialOfferList"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Lists all Special Offer",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/specialOffer/getAllSpecialOfferList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"specialOffer",
+								"getAllSpecialOfferList"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:35:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"specialOfferId\": 1,\n        \"name\": \"PROMO\",\n        \"fixedPercentageDiscount\": 5\n    },\n    {\n        \"specialOfferId\": 2,\n        \"name\": \"DISCOUNT\",\n        \"fixedPercentageDiscount\": 10\n    }\n]"
+				}
+			]
+		}
+	]
+}

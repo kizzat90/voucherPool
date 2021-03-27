@@ -23,13 +23,12 @@ public class RecipientController {
     @RequestMapping(value = "/newRecipient", method = RequestMethod.POST)
     public ResponseEntity<CustomMessage> newRecipient(@RequestParam("name") String name,
                                                       @RequestParam("email") String email) {
-        Recipient recipient = recipientService.newRecipient(name, email);
-        if (recipient != null) {
+        try {
+            Recipient recipient = recipientService.newRecipient(name, email);
             return new ResponseEntity<>(new CustomMessage("Created user : " + recipient.getName() +"!", false),
                     HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(new CustomMessage("ERROR:Recipient with Email = " + email +
-                    " has already been created", true), HttpStatus.OK);
+        } catch (Exception exception) {
+            return new ResponseEntity<>(new CustomMessage(exception.getMessage(), true), HttpStatus.OK);
         }
     }
 

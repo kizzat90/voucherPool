@@ -1,0 +1,853 @@
+{
+	"info": {
+		"_postman_id": "2a54ac1d-207a-4306-bd10-28811d399800",
+		"name": "Main",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Special Offer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"specialOfferId\": \"\",\r\n    \"name\": \"PROMO\",\r\n    \"fixedPercentageDiscount\": \"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/VoucherPool/main/newSpecialOffer?email=kizzat90@gmail.com&expDate=20210410000000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"VoucherPool",
+						"main",
+						"newSpecialOffer"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "kizzat90@gmail.com"
+						},
+						{
+							"key": "expDate",
+							"value": "20210410000000"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Created DISCOUNT Special Offer for Kamal Izzat",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"specialOfferId\": \"\",\r\n    \"name\": \"DISCOUNT\",\r\n    \"fixedPercentageDiscount\": \"90\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/newSpecialOffer?email=kizzat90@gmail.com&expDate=20210410000000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"newSpecialOffer"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								},
+								{
+									"key": "expDate",
+									"value": "20210410000000"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:23:16 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Success\",\n    \"message\": \"Special offer : DISCOUNT has been created!\",\n    \"error\": false,\n    \"validVouchers\": null\n}"
+				},
+				{
+					"name": "Error Parsing Date",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"specialOfferId\": \"\",\r\n    \"name\": \"PROMO\",\r\n    \"fixedPercentageDiscount\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/newSpecialOffer?email=kizzat90@gmail.com&expDate=202104100000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"newSpecialOffer"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								},
+								{
+									"key": "expDate",
+									"value": "202104100000"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 12:55:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Unsuccessful\",\n    \"message\": \"Unparseable date: \\\"202104100000\\\"\",\n    \"error\": true,\n    \"validVouchers\": null\n}"
+				},
+				{
+					"name": "Created PROMO Special Offer for Kamal Izzat",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"specialOfferId\": \"\",\r\n    \"name\": \"PROMO\",\r\n    \"fixedPercentageDiscount\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/newSpecialOffer?email=kizzat90@gmail.com&expDate=20210410000000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"newSpecialOffer"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								},
+								{
+									"key": "expDate",
+									"value": "20210410000000"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:21:34 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Success\",\n    \"message\": \"Special offer : PROMO has been created!\",\n    \"error\": false,\n    \"validVouchers\": null\n}"
+				},
+				{
+					"name": "Error Entered expiration date before current time",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"specialOfferId\": \"\",\r\n    \"name\": \"PROMO\",\r\n    \"fixedPercentageDiscount\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/newSpecialOffer?email=kizzat90@gmail.com&expDate=20210210000000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"newSpecialOffer"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								},
+								{
+									"key": "expDate",
+									"value": "20210210000000"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 12:56:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Unsuccessful\",\n    \"message\": \"Expiration date is before the current time.\",\n    \"error\": true,\n    \"validVouchers\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Redeem Voucher",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/VoucherPool/main/redeemVoucher?voucherCode=7MdFGLDzCI&email=kizzat90@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"VoucherPool",
+						"main",
+						"redeemVoucher"
+					],
+					"query": [
+						{
+							"key": "voucherCode",
+							"value": "7MdFGLDzCI"
+						},
+						{
+							"key": "email",
+							"value": "kizzat90@gmail.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Redeemed Voucher for Kamal Izzat",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/redeemVoucher?voucherCode=DjwFSHQyk&email=kizzat90@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"redeemVoucher"
+							],
+							"query": [
+								{
+									"key": "voucherCode",
+									"value": "DjwFSHQyk"
+								},
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:26:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Success\",\n    \"message\": \"Percentage Discount : 5%\",\n    \"error\": false,\n    \"validVouchers\": null\n}"
+				},
+				{
+					"name": "Error Voucher code is not assigned to the correct email",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/redeemVoucher?voucherCode=5moOvctQx8&email=ali@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"redeemVoucher"
+							],
+							"query": [
+								{
+									"key": "voucherCode",
+									"value": "5moOvctQx8"
+								},
+								{
+									"key": "email",
+									"value": "ali@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:24:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Unsuccessful\",\n    \"message\": \"Email does not match from dB\",\n    \"error\": true,\n    \"validVouchers\": null\n}"
+				},
+				{
+					"name": "ERROR Redeeming expired voucher (Changed the expiry date manually through dB)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/redeemVoucher?voucherCode=5moOvctQx8&email=kizzat90@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"redeemVoucher"
+							],
+							"query": [
+								{
+									"key": "voucherCode",
+									"value": "5moOvctQx8"
+								},
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:37:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Unsuccessful\",\n    \"message\": \"Voucher is already expired\",\n    \"error\": true,\n    \"validVouchers\": null\n}"
+				},
+				{
+					"name": "Error Voucher Code has been used",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/redeemVoucher?voucherCode=DjwFSHQyk&email=kizzat90@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"redeemVoucher"
+							],
+							"query": [
+								{
+									"key": "voucherCode",
+									"value": "DjwFSHQyk"
+								},
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:27:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Unsuccessful\",\n    \"message\": \"Voucher has already been used\",\n    \"error\": true,\n    \"validVouchers\": null\n}"
+				},
+				{
+					"name": "Error Invalid voucher code entered",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/redeemVoucher?voucherCode=5moO&email=kizzat90@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"redeemVoucher"
+							],
+							"query": [
+								{
+									"key": "voucherCode",
+									"value": "5moO"
+								},
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:25:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Unsuccessful\",\n    \"message\": \"Invalid voucher code\",\n    \"error\": true,\n    \"validVouchers\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Valid Vouchers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/VoucherPool/main/getAllValidVoucher?email=kizzat90@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"VoucherPool",
+						"main",
+						"getAllValidVoucher"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "kizzat90@gmail.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Lists all valid vouchers for email kizzat90@gmail.com",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/getAllValidVoucher?email=kizzat90@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"getAllValidVoucher"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:24:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Success\",\n    \"message\": null,\n    \"error\": false,\n    \"validVouchers\": [\n        {\n            \"voucherCode\": \"DjwFSHQyk\",\n            \"specialOffername\": \"PROMO\"\n        },\n        {\n            \"voucherCode\": \"5moOvctQx8\",\n            \"specialOffername\": \"DISCOUNT\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Voucher PROMO is not listed because it has been used.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/main/getAllValidVoucher?email=kizzat90@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"main",
+								"getAllValidVoucher"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:36:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Success\",\n    \"message\": null,\n    \"error\": false,\n    \"validVouchers\": [\n        {\n            \"voucherCode\": \"5moOvctQx8\",\n            \"specialOffername\": \"DISCOUNT\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}

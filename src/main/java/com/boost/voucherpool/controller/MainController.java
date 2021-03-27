@@ -31,16 +31,17 @@ public class MainController {
     // For a given Special Offer and an expiration date, generate for each Recipient a Voucher Code.
     @RequestMapping(value = "/newSpecialOffer", method = RequestMethod.POST)
     public ResponseEntity<CustomMessage> newSpecialOffer(@RequestParam("email") String email,
-                                  @RequestParam("expDate") String expDate,
-                                  @RequestBody SpecialOffer specialOffer) throws Exception {
-        Recipient recipient = recipientService.getRecipientByEmail(email);
-        if (recipient == null) {
+                                                         @RequestParam("expDate") String expDate,
+                                                         @RequestBody SpecialOffer specialOffer) {
+        try {
+            Recipient recipient = recipientService.getRecipientByEmail(email);
+            SpecialOffer newSpecialOffer = specialOfferService.newSpecialOffer(specialOffer);
+            voucherCodeService.newVoucherCode(recipient, newSpecialOffer, expDate);
+        } catch (Exception exception) {
             return new ResponseEntity<>
-                    (new CustomMessage("ERROR:There are no recipient with this email = " + email, true),
+                    (new CustomMessage(exception.getMessage(), true),
                             HttpStatus.OK);
         }
-        SpecialOffer newSpecialOffer = specialOfferService.newSpecialOffer(specialOffer);
-        voucherCodeService.newVoucherCode(recipient, newSpecialOffer, expDate);
 
         return new ResponseEntity<>
                 (new CustomMessage("Special offer : " + specialOffer.getName() + " has been created!", false),
@@ -51,34 +52,33 @@ public class MainController {
     // Voucher Code. In Case it is valid, return the Percentage Discount and set the date of usage.
     @RequestMapping(value = "/redeemVoucher", method = RequestMethod.GET)
     public ResponseEntity<CustomMessage> redeemVoucher(@RequestParam("voucherCode") String voucherCode,
-                                                         @RequestParam("email") String email) {
-        String message = voucherCodeService.validateVoucherCode(voucherCode, email);
-        boolean error = message.contains("ERROR");
-        return new ResponseEntity<>(new CustomMessage(message, error), HttpStatus.OK);
+                                                       @RequestParam("email") String email) {
+        String message;
+        try {
+            message = voucherCodeService.validateVoucherCode(voucherCode, email);
+        } catch (Exception exception) {
+            return new ResponseEntity<>(new CustomMessage(exception.getMessage(), true), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(new CustomMessage(message, false), HttpStatus.OK);
     }
 
     // Extra: For a given Email, return all his valid Voucher Codes with the Name of the Special Offer.
     @RequestMapping(value = "/getAllValidVoucher", method = RequestMethod.GET)
     public ResponseEntity<CustomMessage> getAllValidVoucher(@RequestParam("email") String email) {
-        Recipient recipient = recipientService.getRecipientByEmail(email);
-        if (recipient == null) {
-            return new ResponseEntity<>
-                    (new CustomMessage("ERROR:There are no recipient with this email = " + email, true),
-                            HttpStatus.OK);
+        List<VoucherCode> validVouchers;
+        try {
+            validVouchers = voucherCodeService.allValidVouchersByEmail(email);
+        } catch (Exception exception) {
+            return new ResponseEntity<>(new CustomMessage(exception.getMessage(), true), HttpStatus.OK);
         }
-        List<VoucherCode> validVouchers = voucherCodeService.allValidVouchersByEmail(email);
-        if (validVouchers.isEmpty()) {
-            return new ResponseEntity<>(new CustomMessage("ERROR:There are no valid vouchers for " +
-                    recipient.getName(),true), HttpStatus.OK);
-        } else {
-            List<ValidVouchersWithName> validVouchersName = new ArrayList<>();
-            for (VoucherCode vc : validVouchers) {
-                ValidVouchersWithName vvn = new ValidVouchersWithName();
-                vvn.setVoucherCode(vc.getCode());
-                vvn.setSpecialOffername(vc.getSpecialOffer().getName());
-                validVouchersName.add(vvn);
-            }
-            return new ResponseEntity<>(new CustomMessage(validVouchersName), HttpStatus.OK);
+
+        List<ValidVouchersWithName> validVouchersName = new ArrayList<>();
+        for (VoucherCode vc : validVouchers) {
+            ValidVouchersWithName vvn = new ValidVouchersWithName();
+            vvn.setVoucherCode(vc.getCode());
+            vvn.setSpecialOffername(vc.getSpecialOffer().getName());
+            validVouchersName.add(vvn);
         }
+        return new ResponseEntity<>(new CustomMessage(validVouchersName), HttpStatus.OK);
     }
 }

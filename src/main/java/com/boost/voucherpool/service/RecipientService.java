@@ -13,13 +13,13 @@ public class RecipientService {
     private RecipientRepository recipientRepository;
 
     // Create new recipient
-    public Recipient newRecipient(String name, String email) {
+    public Recipient newRecipient(String name, String email) throws Exception {
         Recipient recipient = new Recipient();
         recipient.setName(name);
         recipient.setEmail(email);
 
         if (recipientRepository.getRecipientByEmail(email) != null) {
-            return null;
+            throw new Exception("Recipient with Email = " + email + " has already been created");
         } else {
             recipient.setEmail(email);
         }
@@ -27,8 +27,13 @@ public class RecipientService {
     }
 
     // Retrieve Recipient by Email
-    public Recipient getRecipientByEmail(String email) {
-        return recipientRepository.getRecipientByEmail(email);
+    public Recipient getRecipientByEmail(String email) throws Exception {
+        Recipient recipient = recipientRepository.getRecipientByEmail(email);
+        if (recipient != null) {
+            return recipient;
+        } else {
+            throw new Exception("There are no recipient with this email = " + email);
+        }
     }
 
     // Retrieve All Recipients

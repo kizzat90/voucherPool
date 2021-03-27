@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "923298ef-b145-49ba-ba26-c9e4d8fd2be6",
+		"name": "Recipient",
+		"description": "# Introduction\nCreate new Recipient & retrieve all Recipient\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create New Recipient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/VoucherPool/recipient/newRecipient?name=Kamal Izzat&email=kizzat90@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"VoucherPool",
+						"recipient",
+						"newRecipient"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Kamal Izzat"
+						},
+						{
+							"key": "email",
+							"value": "kizzat90@gmail.com"
+						}
+					]
+				},
+				"description": "Creates new recipient."
+			},
+			"response": [
+				{
+					"name": "Created recipient Ali",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/recipient/newRecipient?name=Ali&email=ali@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"recipient",
+								"newRecipient"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Ali"
+								},
+								{
+									"key": "email",
+									"value": "ali@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:20:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Success\",\n    \"message\": \"Created user : Ali!\",\n    \"error\": false,\n    \"validVouchers\": null\n}"
+				},
+				{
+					"name": "Error Duplicate email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/recipient/newRecipient?name=Kamal Izzat&email=kizzat90@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"recipient",
+								"newRecipient"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Kamal Izzat"
+								},
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:19:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Unsuccessful\",\n    \"message\": \"Recipient with Email = kizzat90@gmail.com has already been created\",\n    \"error\": true,\n    \"validVouchers\": null\n}"
+				},
+				{
+					"name": "Created recipient Kamal Izzat",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/recipient/newRecipient?name=Kamal Izzat&email=kizzat90@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"recipient",
+								"newRecipient"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Kamal Izzat"
+								},
+								{
+									"key": "email",
+									"value": "kizzat90@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:18:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"httpStatus\": \"OK\",\n    \"status\": \"Success\",\n    \"message\": \"Created user : Kamal Izzat!\",\n    \"error\": false,\n    \"validVouchers\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Recipient List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/VoucherPool/recipient/getAllRecipient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"VoucherPool",
+						"recipient",
+						"getAllRecipient"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List of all Recipients",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/VoucherPool/recipient/getAllRecipient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"VoucherPool",
+								"recipient",
+								"getAllRecipient"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Mar 2021 13:20:30 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=20"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"recipientId\": 1,\n        \"name\": \"Kamal Izzat\",\n        \"email\": \"kizzat90@gmail.com\"\n    },\n    {\n        \"recipientId\": 2,\n        \"name\": \"Ali\",\n        \"email\": \"ali@gmail.com\"\n    }\n]"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://petstore.swagger.io/v1",
+			"type": "string"
+		}
+	]
+}
