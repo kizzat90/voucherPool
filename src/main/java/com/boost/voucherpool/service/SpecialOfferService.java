@@ -14,6 +14,7 @@ public class SpecialOfferService {
 
     // Create new Special Offer
     public SpecialOffer newSpecialOffer(SpecialOffer specialOffer) {
+        specialOffer.setSpecialOfferId(null);
         return specialOfferRepository.save(specialOffer);
     }
 
