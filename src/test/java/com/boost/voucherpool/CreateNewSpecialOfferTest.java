@@ -24,16 +24,14 @@ import java.util.Random;
 
 public class CreateNewSpecialOfferTest {
     /**
-     * mvn test -Dtest=CreateNewSpecialOfferTest
-     * -Dhost= -Dport= -Dloop=
+     * mvn test -Dtest=CreateNewSpecialOfferTest -Dloop=
      * @throws URISyntaxException
      * @throws IOException
      */
     @Test
     public void createNewSpecialOffer() throws URISyntaxException, IOException {
-        String host = System.getProperty("host") != null ? System.getProperty("host") : "localhost";
-        String pt = System.getProperty("port") != null ? System.getProperty("port") : "8080";
-        int port = Integer.parseInt(pt);
+        String host = "localhost";
+        int port = 8080;
         Random random = new Random();
         int loop = System.getProperty("loop") != null ? Integer.parseInt(System.getProperty("loop")) : random.nextInt(20);
 

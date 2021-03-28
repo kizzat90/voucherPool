@@ -23,15 +23,13 @@ import java.util.List;
 public class RedeemVoucherTest {
     /**
      * mvn test -Dtest=RedeemVoucherTest
-     * -Dhost= -Dport=
      * @throws URISyntaxException
      * @throws IOException
      */
     @Test
     public void redeemVouchers() throws IOException, URISyntaxException {
-        String host = System.getProperty("host") != null ? System.getProperty("host") : "localhost";
-        String pt = System.getProperty("port") != null ? System.getProperty("port") : "8080";
-        int port = Integer.parseInt(pt);
+        String host = "localhost";
+        int port = 8080;
 
         List<VoucherCode> allVoucherCodes = getAllVoucherCode(host, port);
         for (VoucherCode vc : allVoucherCodes) {
