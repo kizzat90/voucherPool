@@ -1,0 +1,29 @@
+version: '3.1'
+services:
+  voucherDB:
+    image: mariadb
+    container_name: voucherDB
+    restart: always
+    environment:
+      - MYSQL_DATABASE=voucherdb
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=
+    ports:
+    - 3306:3306
+  voucherPool:
+    depends_on:
+      - voucherDB
+    image: tomcat:8.5.61
+    container_name: voucherPool
+    volumes:
+    - ./Docker_configs/server.xml:/usr/local/tomcat/conf/server.xml
+    - ./Docker_configs/context.xml:/usr/local/tomcat/conf/context.xml
+    - ./Docker_configs/VoucherPool.war:/usr/local/tomcat/webapps/VoucherPool.war
+    ports:
+      - 8080:8080
+    environment:
+      - MYSQL_DATABASE=voucherdb
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=
