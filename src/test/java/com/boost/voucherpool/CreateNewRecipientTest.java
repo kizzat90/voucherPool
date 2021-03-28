@@ -49,6 +49,7 @@ public class CreateNewRecipientTest {
             CloseableHttpResponse response = client.execute(httpPost);
             String json = Utilities.getInstance().getJsonOutputFromResponse(response);
             Assert.assertEquals(HttpStatus.SC_OK, response.getStatusLine().getStatusCode());
+            System.out.println(json);
 
             client.close();
         }
